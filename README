@@ -1,6 +1,8 @@
 Pseudo Random Number Generators 
 -------------------------------
 
+The code in this package is subject to a BSD-style license. See LICENSE for more information.
+
 Implements:
 	MT = Double 32bit Mersenne Twister [MT19937]
 	Kiss = Kiss64 algoritm
