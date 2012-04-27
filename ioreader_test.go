@@ -13,7 +13,7 @@ func TestIOReader(t *testing.T) {
 	io := Reader(NewKiss())
 	var b [8]byte
 	io.Read(b[:])
-	t2 := b[7]
+	t2 := b[0]
 
 	if t1 != t2 {
 		t.Fail()
