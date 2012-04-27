@@ -5,8 +5,8 @@
 package randgen
 
 import (
-	"math/rand"
 	"io"
+	"math/rand"
 )
 
 type ioReader struct {
@@ -14,12 +14,14 @@ type ioReader struct {
 }
 
 func Reader(r rand.Source) io.Reader {
-	return &ioReader{s:r}
+	return &ioReader{s: r}
 }
 
 func (io *ioReader) Read(p []byte) (n int, err error) {
 	c := len(p) / 8
-	if c == 0  { return 0, nil }
+	if c == 0 {
+		return 0, nil
+	}
 	for lp := 0; lp < c; lp++ {
 		i := lp * 8
 		r := (uint64)(io.s.Int63())
@@ -32,5 +34,5 @@ func (io *ioReader) Read(p []byte) (n int, err error) {
 		p[i+1] = (byte)(r >> 48)
 		p[i] = (byte)(r >> 56)
 	}
-	return c * 8, nil 
+	return c * 8, nil
 }
