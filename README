@@ -1,0 +1,16 @@
+Pseudo Random Number Generators 
+-------------------------------
+
+Implements:
+	MT = Double 32bit Mersenne Twister [MT19937]
+	Kiss = Kiss64 algoritm
+
+-= Benchmark Results =-
+(Standaard PRNG in Go is benchmarked as Buildin for comparison)
+
+Core i3 330M / 4GB / Ubuntu 12.04 AMD64 Desktop / 6g compiler
+-------------------------------------------------------------
+BenchmarkBuildin	50000000	        51.9 ns/op
+BenchmarkKiss	100000000	        22.6 ns/op
+BenchmarkMT	50000000	        65.7 ns/op
+
