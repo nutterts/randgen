@@ -11,7 +11,7 @@ var GlobalKiss rand.Source
 func NewKiss() rand.Source {
 	return &Kiss{
 		x: 1234567890987654321,
-		c: 123456123456123456,
+		c: 1,
 		y: 362436362436362436,
 		z: 1066149217761810,
 	}

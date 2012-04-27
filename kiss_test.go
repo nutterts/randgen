@@ -4,11 +4,13 @@ import "testing"
 
 func TestKiss(t *testing.T) {
 	var r int64
-	for i := 0; i < 100000000; i++ {
+	for i := 0; i < 100000; i++ {
 		r = GlobalKiss.Int63()
 	}
-	if r != 1666297717051644203 {
+	if r != 2239460713827829247 {
 		t.Fail()
+	} else {
+		println("KISS [OK]")
 	}
 }
 
