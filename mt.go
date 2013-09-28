@@ -63,13 +63,13 @@ func (m *MT) refill() {
 	var y uint32
 	for m.lp = 0; m.lp < 624; m.lp++ {
 		// Lower bits
-		y = (m.arrayL[m.lp] & 0x80000000) | (m.arrayL[(m.lp+1)%624] & 0xffffffff)
+		y = (m.arrayL[m.lp] & 0x80000000) | (m.arrayL[(m.lp+1)%624] & 0x7fffffff)
 		m.arrayL[m.lp] = m.arrayL[(m.lp+397)%624] ^ (y >> 1)
 		if (y % 2) != 0 { // y is odd			
 			m.arrayL[m.lp] ^= 0x9908b0df
 		}
 		// Upper bits
-		y = (m.arrayU[m.lp] & 0x80000000) | (m.arrayU[(m.lp+1)%624] & 0xffffffff)
+		y = (m.arrayU[m.lp] & 0x80000000) | (m.arrayU[(m.lp+1)%624] & 0x7fffffff)
 		m.arrayU[m.lp] = m.arrayU[(m.lp+397)%624] ^ (y >> 1)
 		if (y % 2) != 0 { // y is odd			
 			m.arrayU[m.lp] ^= 0x9908b0df
